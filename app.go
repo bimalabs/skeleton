@@ -68,7 +68,7 @@ func (_ Application) Run(config string) {
 	var cName bytes.Buffer
 
 	ext = parsers.ParseModule(workDir)
-	servers := make([]configs.Server, len(ext))
+	servers := make([]configs.Server, 0, len(ext))
 	for k, c := range ext {
 		cName.Reset()
 		cName.WriteString(c)
@@ -78,7 +78,7 @@ func (_ Application) Run(config string) {
 	}
 
 	ext = parsers.ParseListener(workDir)
-	listeners := make([]events.Listener, len(ext))
+	listeners := make([]events.Listener, 0, len(ext))
 	for k, c := range ext {
 		cName.Reset()
 		cName.WriteString("bima:listener:")
@@ -88,7 +88,7 @@ func (_ Application) Run(config string) {
 	}
 
 	ext = parsers.ParseMiddleware(workDir)
-	hooks := make([]middlewares.Middleware, len(ext))
+	hooks := make([]middlewares.Middleware, 0, len(ext))
 	for k, c := range ext {
 		cName.Reset()
 		cName.WriteString("bima:middleware:")
@@ -98,7 +98,7 @@ func (_ Application) Run(config string) {
 	}
 
 	ext = parsers.ParseLogger(workDir)
-	extensions := make([]logrus.Hook, len(ext))
+	extensions := make([]logrus.Hook, 0, len(ext))
 	for k, c := range ext {
 		cName.Reset()
 		cName.WriteString("bima:logger:extension:")
@@ -108,7 +108,7 @@ func (_ Application) Run(config string) {
 	}
 
 	ext = parsers.ParseRoute(workDir)
-	handlers := make([]routes.Route, len(ext))
+	handlers := make([]routes.Route, 0, len(ext))
 	for k, c := range ext {
 		cName.Reset()
 		cName.WriteString("bima:route:")

@@ -3,7 +3,7 @@ secret: s3cr3t
 http_port: 7777
 rpc_port: 1717
 api_version: v1
-cache_lifetime: 1020
+cache_lifetime: 17
 service:
   name: Bima Skeleton
 database:
