@@ -101,7 +101,7 @@ Because by default skeleton doesn't provide filter. To apply request filter, you
 First, i assume you are use `mysql` or `postgresql` as driver, you need to add code below into your `todos/dic.go`
 
 ```go
-// import "github.com/KejawenLab/bima/v3/listeners/paginations"
+// import "github.com/KejawenLab/bima/v4/listeners/paginations"
 {
     Name:  "bima:listener:filter:gorm",
     Scope: bima.Application,
@@ -216,7 +216,7 @@ import (
 	"bytes"
 	"net/http"
 
-	"github.com/KejawenLab/bima/v3/middlewares"
+	"github.com/KejawenLab/bima/v4/middlewares"
 	"google.golang.org/grpc"
 )
 
@@ -387,15 +387,15 @@ To remove module, just run `task module -- remove <name>`
 
 - [x] [Use Elasticsearch paginator](docs/elasticsearch_paginator.md)
 
-- [x] [Use Pub/Sub to publish and consume message](docs/pub_sub.md)
+- [x] [Use Pub/Sub to publish and consume message (AMQP)](docs/pub_sub.md)
 
 - [x] [Convert Mux Middleware to Bima Middleware](docs/convert_middleware.md)
 
 - [x] [Create Your Own Database Driver](docs/driver.md)
 
-- [ ] [Use MongoDB as Storage Driver](docs/mongodb.md)
+- [x] [Use MongoDB as Storage Driver](docs/mongodb.md)
 
-- [ ] [Use Kafka in Message Broker](docs/kafka.md)
+- [x] [Use Kafka in Message Broker](docs/kafka.md)
 
 ### Middlewares
 
