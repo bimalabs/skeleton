@@ -407,6 +407,6 @@ To remove module, just run `task module -- remove <name>`
 
 - [x] [CORS](https://github.com/KejawenLab/bima/blob/main/middlewares/cors.go)
 
-- [x] [Helmet](https://github.com/KejawenLab/bima/blob/main/middlewares/helmet.go)
+- [x] [Helmet](docs/helmet.md)
 
 - [x] [Rate Limiter](docs/convert_middleware.md)
