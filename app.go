@@ -13,6 +13,8 @@ import (
 	"strings"
 	"time"
 
+	"app/generated/app"
+
 	bima "github.com/bimalabs/framework/v4"
 	"github.com/bimalabs/framework/v4/configs"
 	"github.com/bimalabs/framework/v4/events"
@@ -20,8 +22,6 @@ import (
 	"github.com/bimalabs/framework/v4/middlewares"
 	"github.com/bimalabs/framework/v4/parsers"
 	"github.com/bimalabs/framework/v4/routes"
-	"github.com/bimalabs/skeleton/v4/generated/app"
-	"github.com/fatih/color"
 	"github.com/goccy/go-json"
 	"github.com/iancoleman/strcase"
 	"github.com/joho/godotenv"
@@ -51,7 +51,6 @@ func (_ Application) Run(config string) {
 	loadEnv(env, config, filepath.Ext(config))
 
 	workDir, _ := os.Getwd()
-	util := color.New(color.FgCyan, color.Bold)
 
 	var ext []string
 	var cName bytes.Buffer
@@ -112,10 +111,10 @@ func (_ Application) Run(config string) {
 	container.GetBimaEventDispatcher().Register(listeners)
 	container.GetBimaRouterGateway().Register(servers)
 
-	util.Printf("✓ ")
+	fmt.Printf("✓ ")
 	fmt.Printf("REST running on %d\n", env.HttpPort)
 	if env.Debug {
-		util.Printf("✓ ")
+		fmt.Printf("✓ ")
 		fmt.Println("Api Doc ready on /api/docs")
 	}
 

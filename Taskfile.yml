@@ -10,26 +10,19 @@ tasks:
             - git push origin {{.CLI_ARGS}}
     module:
         cmds:
-            - bima dump
-            - bima module add {{.CLI_ARGS}}
-            - bima clean
-            - bima dump
+            - bima module {{.CLI_ARGS}}
     run:
         cmds:
-            - bima dump
             - bima run {{.CLI_ARGS}}
     clean:
         cmds:
             - bima clean
-            - bima dump
     update:
         cmds:
             - bima update
-            - bima dump
     dump:
         cmds:
             - bima dump
     generate:
         cmds:
-            - bima dump
             - bima generate

@@ -1,4 +1,4 @@
-module github.com/bimalabs/skeleton/v4
+module app
 
 go 1.16
 

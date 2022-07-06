@@ -3,8 +3,9 @@ package dics
 
 import (
 	//@modules:import
+	"app/dics"
+
 	core "github.com/bimalabs/framework/v4/dics"
-	"github.com/bimalabs/skeleton/v4/dics"
 	"github.com/sarulabs/dingo/v4"
 )
 

@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	dics "github.com/bimalabs/skeleton/v4/configs"
+	dics "app/configs"
+
 	"github.com/sarulabs/dingo/v4"
 )
 

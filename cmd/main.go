@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	skeleton "github.com/bimalabs/skeleton/v4"
+	skeleton "app"
 )
 
 func main() {
