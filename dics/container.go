@@ -1,13 +1,13 @@
 package dics
 
 import (
-	"github.com/KejawenLab/bima/v4"
-	"github.com/KejawenLab/bima/v4/configs"
-	"github.com/KejawenLab/bima/v4/events"
-	"github.com/KejawenLab/bima/v4/handlers"
-	"github.com/KejawenLab/bima/v4/paginations"
-	"github.com/KejawenLab/bima/v4/paginations/adapters"
-	"github.com/KejawenLab/bima/v4/repositories"
+	"github.com/bimalabs/framework/v4"
+	"github.com/bimalabs/framework/v4/configs"
+	"github.com/bimalabs/framework/v4/events"
+	"github.com/bimalabs/framework/v4/handlers"
+	"github.com/bimalabs/framework/v4/paginations"
+	"github.com/bimalabs/framework/v4/paginations/adapters"
+	"github.com/bimalabs/framework/v4/repositories"
 	"github.com/sarulabs/dingo/v4"
 )
 

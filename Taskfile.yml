@@ -10,26 +10,26 @@ tasks:
             - git push origin {{.CLI_ARGS}}
     module:
         cmds:
-            - go run dumper/main.go
-            - go run cmd/main.go module {{.CLI_ARGS}}
-            - go mod tidy
-            - go run dumper/main.go
+            - bima dump
+            - bima module add {{.CLI_ARGS}}
+            - bima clean
+            - bima dump
     run:
         cmds:
-            - go run dumper/main.go
-            - go run cmd/main.go run {{.CLI_ARGS}}
+            - bima dump
+            - bima run {{.CLI_ARGS}}
     clean:
         cmds:
-            - go mod tidy
-            - go run dumper/main.go
+            - bima clean
+            - bima dump
     update:
         cmds:
-            - go get -u
-            - go run dumper/main.go
+            - bima update
+            - bima dump
     dump:
         cmds:
-            - go run dumper/main.go
+            - bima dump
     generate:
         cmds:
-            - go run dumper/main.go
-            - sh proto_gen.sh
+            - bima dump
+            - bima generate

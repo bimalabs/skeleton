@@ -2,18 +2,14 @@
 package dics
 
 import (
-    //@modules:import
-	core "github.com/KejawenLab/bima/v4/dics"
-	"github.com/KejawenLab/skeleton/v3/dics"
+	//@modules:import
+	core "github.com/bimalabs/framework/v4/dics"
+	"github.com/bimalabs/skeleton/v4/dics"
 	"github.com/sarulabs/dingo/v4"
 )
 
 type (
 	Engine struct {
-		dingo.BaseProvider
-	}
-
-	Generator struct {
 		dingo.BaseProvider
 	}
 )
@@ -26,15 +22,7 @@ func (p *Engine) Load() error {
 	if err := p.AddDefSlice(dics.Container); err != nil {
 		return err
 	}
-    //@modules:register
-
-	return nil
-}
-
-func (p *Generator) Load() error {
-	if err := p.AddDefSlice(core.Generator); err != nil {
-		return err
-	}
+	//@modules:register
 
 	return nil
 }
