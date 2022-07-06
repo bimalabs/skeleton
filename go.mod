@@ -2,9 +2,10 @@ module app
 
 go 1.16
 
+replace github.com/bimalabs/framework/v4 v4.0.5 => ../bima
+
 require (
 	github.com/bimalabs/framework/v4 v4.0.5
-	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.8
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
 	github.com/iancoleman/strcase v0.2.0

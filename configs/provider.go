@@ -2,7 +2,7 @@
 package dics
 
 import (
-	//@modules:import
+    //@modules:import
 	"app/dics"
 
 	core "github.com/bimalabs/framework/v4/dics"
@@ -23,7 +23,7 @@ func (p *Engine) Load() error {
 	if err := p.AddDefSlice(dics.Container); err != nil {
 		return err
 	}
-	//@modules:register
+    //@modules:register
 
 	return nil
 }

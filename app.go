@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"app/generated/app"
+	"app/generated/engine"
 
 	bima "github.com/bimalabs/framework/v4"
 	"github.com/bimalabs/framework/v4/configs"
@@ -42,7 +42,7 @@ func (_ Application) Run(config string) {
 		config = ".env"
 	}
 
-	container, err := app.NewContainer(bima.Application)
+	container, err := engine.NewContainer(bima.Application)
 	if err != nil {
 		panic(err)
 	}
@@ -183,8 +183,8 @@ func processDotEnv(config *configs.Env) {
 	config.CacheLifetime, _ = strconv.Atoi(os.Getenv("CACHE_LIFETIME"))
 }
 
-func loadInterface(app *app.Container, application *interfaces.Factory, config configs.Env) {
-	definition, err := app.SafeGet("bima:interface:rest")
+func loadInterface(engine *engine.Container, application *interfaces.Factory, config configs.Env) {
+	definition, err := engine.SafeGet("bima:interface:rest")
 	rest, ok := definition.(*interfaces.Rest)
 	if ok && err == nil {
 		application.Add(rest)
@@ -218,12 +218,12 @@ func loadInterface(app *app.Container, application *interfaces.Factory, config c
 		application.Add(&interfaces.GRpc{GRpcPort: config.RpcPort, Debug: config.Debug})
 	}
 
-	definition, err = app.SafeGet("bima:interface:elasticsearch")
+	definition, err = engine.SafeGet("bima:interface:elasticsearch")
 	if app, ok := definition.(*interfaces.Elasticsearch); ok && err == nil {
 		application.Add(app)
 	}
 
-	definition, err = app.SafeGet("bima:interface:consumer")
+	definition, err = engine.SafeGet("bima:interface:consumer")
 	if app, ok := definition.(*interfaces.Consumer); ok && err == nil {
 		application.Add(app)
 	}
