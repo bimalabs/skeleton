@@ -1,6 +1,6 @@
 ## Skeleton
 
-Skeleton is a boilerplate, RESTful generator based on [Bima](https://github.com/KejawenLab/bima)
+Skeleton is a boilerplate, RESTful generator based on [Bima Framework](https://github.com/bimalabs/framework)
 
 ### Video
 
@@ -12,7 +12,7 @@ Check the [video](https://www.youtube.com/watch?v=zZPpDizZGIM)
 
 - Git
 
-- [Taskfile](taskfile.dev)
+- [Bima Cli](https://github.com/bimalabs/cli)
 
 - [gRPC Gateway](https://github.com/grpc-ecosystem/grpc-gateway)
 
@@ -24,17 +24,13 @@ Check the [video](https://www.youtube.com/watch?v=zZPpDizZGIM)
 
 ### Basic Usage
 
-- Download using skeleton using git by running `git clone https://github.com/KejawenLab/skeleton.git`
+- Create new project using `bima create app <name>`
 
-- Download dependencies using `task clean` command
-
-- Copy `env.example` to `.env`
-
-- Run using `task run`
+- Move to app folder and run `bima run` command
 
 ![Default Empty](assets/empty-run.png)
 
-- Open your browser and open `http://localhost:7777/api/docs` or port assigned by you
+- Open your browser and open `http://localhost:7777/api/docs`
 
 ![Swagger](assets/empty-swagger.png)
 
@@ -55,15 +51,13 @@ DB_USER=root
 DB_PASSWORD=aden
 ```
 
-- Rerun your service using `task run` and you got new message `Database configured using mysql driver` like below
+- Rerun your service using `bima run` and you got new message `Database configured using mysql driver` like below
 
 ![Databases](assets/database-configured.png)
 
 ### Create New Module
 
-- Add `API_VERSION=v1` to `.env`
-
-- Run `task module -- add <name>`
+- Run `bima module add todo` that `todo` is your module name
 
 - Follow the instructions 
 
@@ -73,7 +67,7 @@ DB_PASSWORD=aden
 
 ![Module Structure](assets/module-structure.png)
 
-- Run `task run` and refresh your browser
+- Run `bima run` and refresh your browser
 
 ![Swagger Menu](assets/swagger-menu.png)
 
@@ -116,7 +110,7 @@ listeners:
     - filter:gorm # `bima:listener:` prefix is reserved by skeleton 
 ```
 
-Now, you can rerun using `task run` and try `/api/v1/todos?fields=task&values=xxx` and then the result like below
+Now, you can rerun using `bima run` and try `/api/v1/todos?fields=task&values=xxx` and then the result like below
 
 
 ![After Filter](assets/filter-applied.png)
@@ -143,7 +137,7 @@ AfterUpdateEvent  = Event("after_update")
 AfterDeleteEvent  = Event("after_delete")
 ```
 
-You can refer default listeners in [`listeners`](https://github.com/KejawenLab/bima/tree/main/listeners) for example
+You can refer default listeners in [`listeners`](https://github.com/bimalabs/framework/tree/main/listeners) for example
 
 ### Your first middleware
 
@@ -192,7 +186,7 @@ middlewares:
     - todo
 ```
 
-Now, you can rerun using `task run` and try `/api/v1/todos` and then the result like below
+Now, you can rerun using `bima run` and try `/api/v1/todos` and then the result like below
 
 ![Response header](assets/response-header-middleware.png)
 
@@ -261,7 +255,7 @@ routes:
     - hello
 ```
 
-Rerun using `task run` and open `/api/v1/todos/hello/bima` and then the result like below
+Rerun using `bima run` and open `/api/v1/todos/hello/bima` and then the result like below
 
 ![Add route](assets/add-route.png)
 
@@ -365,11 +359,11 @@ Don't forget to add `ELASTICSEARCH_HOST` and `ELASTICSEARCH_PORT` to your `.env`
 
 ### Using Yaml or Json config
 
-To run application using yaml or json config, you can run using `task run -- <file>.<ext>`
+To run application using yaml or json config, you can run using `bima run -f <file>.<ext>`
 
 ### Remove module
 
-To remove module, just run `task module -- remove <name>`
+To remove module, just run `bima module remove <name>`
 
 ### Tutorial
 
@@ -399,13 +393,13 @@ To remove module, just run `task module -- remove <name>`
 
 ### Middlewares
 
-- [x] [Basic Auth](https://github.com/KejawenLab/bima/blob/main/middlewares/basic_auth.go)
+- [x] [Basic Auth](https://github.com/bimalabs/framework/blob/main/middlewares/basic_auth.go)
 
-- [x] [Jwt Atuh](https://github.com/KejawenLab/bima/blob/main/middlewares/jwt.go)
+- [x] [Jwt Auth](https://github.com/bimalabs/framework/blob/main/middlewares/jwt.go)
 
-- [x] [RequestID](https://github.com/KejawenLab/bima/blob/main/middlewares/requestid.go)
+- [x] [RequestID](https://github.com/bimalabs/framework/blob/main/middlewares/requestid.go)
 
-- [x] [CORS](https://github.com/KejawenLab/bima/blob/main/middlewares/cors.go)
+- [x] [CORS](https://github.com/bimalabs/framework/blob/main/middlewares/cors.go)
 
 - [x] [Helmet](docs/helmet.md)
 

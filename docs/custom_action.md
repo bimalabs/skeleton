@@ -14,7 +14,7 @@ rpc Done (Todo) returns (TodoResponse) {
 
 We add new `Done` service with `/api/v1/todos/{id}/done` as path and use `POST` HTTP method
 
-- Update generated code using `task generate` and refresh your browser
+- Update generated code using `bima generate` and refresh your browser
 
 ![Custom Action](../assets/custom-action.png)
 
