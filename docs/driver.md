@@ -12,7 +12,10 @@ import (
 	"gorm.io/gorm"
 )
 
-type Sqlite struct {
+type Sqlite string
+
+func (s Sqlite) Name() string {
+    return string(s)
 }
 
 func (_ Sqlite) Connect(_ string, _ int, _ string, _ string, dbname string, _ bool) *gorm.DB {
@@ -32,7 +35,9 @@ func (_ Sqlite) Connect(_ string, _ int, _ string, _ string, dbname string, _ bo
 {
     Name:  "bima:driver:sqlite",
     Scope: bima.Application,
-    Build: (*drivers.Sqlite)(nil),
+    Build: func() (*drivers.Sqlite, error) {
+        return Sqlite("sqlite")
+    },
 },
 ```
 
