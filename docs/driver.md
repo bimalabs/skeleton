@@ -36,4 +36,9 @@ func (_ Sqlite) Connect(_ string, _ int, _ string, _ string, dbname string, _ bo
 },
 ```
 
-- Use `bima:driver:sqlite` directly as dependency
+- Add to `configs/drivers.yaml`
+
+```yaml
+drivers:
+    - sqlite
+```

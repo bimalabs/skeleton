@@ -17,6 +17,7 @@ import (
 
 	bima "github.com/bimalabs/framework/v4"
 	"github.com/bimalabs/framework/v4/configs"
+	"github.com/bimalabs/framework/v4/drivers"
 	"github.com/bimalabs/framework/v4/events"
 	"github.com/bimalabs/framework/v4/interfaces"
 	"github.com/bimalabs/framework/v4/middlewares"
@@ -105,10 +106,21 @@ func (_ Application) Run(config string) {
 		handlers = append(handlers, container.Get(cName.String()).(routes.Route))
 	}
 
+	ext = parsers.ParseRoute(workDir)
+	storages := make([]drivers.Driver, 0, len(ext))
+	for _, c := range ext {
+		cName.Reset()
+		cName.WriteString("bima:driver:")
+		cName.WriteString(c)
+
+		storages = append(storages, container.Get(cName.String()).(drivers.Driver))
+	}
+
 	container.GetBimaRouterMux().Register(handlers)
 	container.GetBimaLoggerExtension().Register(extensions)
 	container.GetBimaMiddlewareFactory().Register(hooks)
 	container.GetBimaEventDispatcher().Register(listeners)
+	container.GetBimaDriverFactory().Register(storages)
 	container.GetBimaRouterGateway().Register(servers)
 
 	fmt.Printf("✓ ")

@@ -3,7 +3,7 @@ module app
 go 1.16
 
 require (
-	github.com/bimalabs/framework/v4 v4.0.7
+	github.com/bimalabs/framework/v4 v4.0.8
 	github.com/goccy/go-json v0.9.8
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
 	github.com/iancoleman/strcase v0.2.0
@@ -19,4 +19,5 @@ require (
 	google.golang.org/protobuf v1.28.0
 	gopkg.in/yaml.v2 v2.4.0
 	gorm.io/driver/postgres v1.3.8 // indirect
+	gorm.io/gorm v1.23.8 // indirect
 )
