@@ -60,7 +60,7 @@ func (s *Server) Sync(client *elastic.Client) {
 		loggers.Logger.Error(ctx, err.Error())
 	}
 
-    index := fmt.Sprintf("%s_%s", s.Module.Model.Env.Service.ConnonicalName, s.Module.Model.TableName())
+    index := fmt.Sprintf("%s_%s", s.Module.Model.Env.Service, s.Module.Model.TableName())
 	for _, d := range records {
 		data, _ := json.Marshal(d)
 		if d.SyncedAt.Valid {
@@ -100,7 +100,7 @@ func (s *Server) Sync(client *elastic.Client) {
     Scope: bima.Application,
     Build: func(env *configs.Env, client *elastic.Client) (*creates.Elasticsearch, error) {
         return &creates.Elasticsearch{
-            Service:       env.Service.ConnonicalName,
+            Service:       env.Service,
             Elasticsearch: client,
         }, nil
     },
@@ -114,7 +114,7 @@ func (s *Server) Sync(client *elastic.Client) {
     Scope: bima.Application,
     Build: func(env *configs.Env, client *elastic.Client) (*updates.Elasticsearch, error) {
         return &updates.Elasticsearch{
-            Service:       env.Service.ConnonicalName,
+            Service:       env.Service,
             Elasticsearch: client,
         }, nil
     },
@@ -128,7 +128,7 @@ func (s *Server) Sync(client *elastic.Client) {
     Scope: bima.Application,
     Build: func(env *configs.Env, client *elastic.Client) (*deletes.Elasticsearch, error) {
         return &deletes.Elasticsearch{
-            Service:       env.Service.ConnonicalName,
+            Service:       env.Service,
             Elasticsearch: client,
         }, nil
     },

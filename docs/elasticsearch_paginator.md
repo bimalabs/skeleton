@@ -35,7 +35,7 @@ For elasticsearch, we use `https://github.com/olivere/elastic` as library
     Build: func(env *configs.Env, client *elastic.Client, dispatcher *events.Dispatcher) (*adapter.ElasticsearchAdapter, error) {
         return &adapter.ElasticsearchAdapter{
             Debug:      env.Debug,
-            Service:    env.Service.ConnonicalName,
+            Service:    env.Service,
             Client:     client,
             Dispatcher: dispatcher,
         }, nil

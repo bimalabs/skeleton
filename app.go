@@ -25,7 +25,6 @@ import (
 	"github.com/bimalabs/framework/v4/routes"
 	"github.com/fatih/color"
 	"github.com/goccy/go-json"
-	"github.com/iancoleman/strcase"
 	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
@@ -180,12 +179,7 @@ func processDotEnv(config *configs.Env) {
 	config.HttpPort, _ = strconv.Atoi(os.Getenv("APP_PORT"))
 	config.RpcPort, _ = strconv.Atoi(os.Getenv("GRPC_PORT"))
 
-	sName := os.Getenv("APP_NAME")
-	config.Service = configs.Service{
-		Name:           sName,
-		ConnonicalName: strcase.ToDelimited(sName, '_'),
-	}
-
+	config.Service = os.Getenv("APP_NAME")
 	dbPort, _ := strconv.Atoi(os.Getenv("DB_PORT"))
 	config.Db = configs.Db{
 		Host:     os.Getenv("DB_HOST"),
