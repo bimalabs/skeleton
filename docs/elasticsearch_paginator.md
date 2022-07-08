@@ -20,7 +20,7 @@ For elasticsearch, we use `https://github.com/olivere/elastic` as library
             return nil, nil
         }
 
-        color.New(color.FgCyan, color.Bold).Print("✓ ")
+        color.New(color.FgGreen).Print("✓ ")
         fmt.Println("Elasticsearch configured")
 
         return client, nil

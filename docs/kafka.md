@@ -68,7 +68,7 @@
             return nil, nil
         }
 
-        color.New(color.FgCyan, color.Bold).Print("✓ ")
+        color.New(color.FgGreen).Print("✓ ")
         fmt.Println("Pub/Sub configured")
 
         return messengers.New(env.Debug, broker), nil

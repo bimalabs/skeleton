@@ -23,6 +23,7 @@ import (
 	"github.com/bimalabs/framework/v4/middlewares"
 	"github.com/bimalabs/framework/v4/parsers"
 	"github.com/bimalabs/framework/v4/routes"
+	"github.com/fatih/color"
 	"github.com/goccy/go-json"
 	"github.com/iancoleman/strcase"
 	"github.com/joho/godotenv"
@@ -123,11 +124,14 @@ func (_ Application) Run(config string) {
 	container.GetBimaDriverFactory().Register(storages)
 	container.GetBimaRouterGateway().Register(servers)
 
-	fmt.Printf("✓ ")
-	fmt.Printf("REST running on %d\n", env.HttpPort)
+	util := color.New(color.FgGreen)
+	util.Print("✓ ")
+	fmt.Print("REST running on ")
+	util.Println(env.HttpPort)
 	if env.Debug {
-		fmt.Printf("✓ ")
-		fmt.Println("Api Doc ready on /api/docs")
+		util.Print("✓ ")
+		fmt.Print("Api Doc ready on ")
+		util.Println("/api/docs")
 	}
 
 	application := container.GetBimaApplication()
