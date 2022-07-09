@@ -127,6 +127,8 @@ func (_ Application) Run(config string) {
 	util.Print("✓ ")
 	fmt.Print("REST running on ")
 	util.Println(env.HttpPort)
+	fmt.Print(" with PID ")
+	util.Println(os.Getpid())
 	if env.Debug {
 		util.Print("✓ ")
 		fmt.Print("Api Doc ready on ")
