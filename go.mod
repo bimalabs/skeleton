@@ -7,7 +7,6 @@ require (
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.8
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
-	github.com/iancoleman/strcase v0.2.0
 	github.com/joho/godotenv v1.4.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
