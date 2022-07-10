@@ -123,12 +123,16 @@ func (_ Application) Run(config string) {
 	container.GetBimaDriverFactory().Register(storages)
 	container.GetBimaRouterGateway().Register(servers)
 
+	pid := os.Getpid()
+	err = os.WriteFile(".pid", []byte(strconv.Itoa(pid)), 0755)
+	if err != nil {
+		panic(err)
+	}
+
 	util := color.New(color.FgGreen)
 	util.Print("✓ ")
 	fmt.Print("REST running on ")
 	util.Println(env.HttpPort)
-	fmt.Print(" with PID ")
-	util.Println(os.Getpid())
 	if env.Debug {
 		util.Print("✓ ")
 		fmt.Print("Api Doc ready on ")
