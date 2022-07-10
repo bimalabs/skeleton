@@ -1,5 +1,6 @@
 .env
 .pid
+bima
 config.yaml
 config.json
 !generated/.gitignore
