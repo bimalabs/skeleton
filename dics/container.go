@@ -1,7 +1,7 @@
 package dics
 
 import (
-	"github.com/bimalabs/framework/v4"
+	bima "github.com/bimalabs/framework/v4"
 	"github.com/bimalabs/framework/v4/configs"
 	"github.com/bimalabs/framework/v4/events"
 	"github.com/bimalabs/framework/v4/handlers"
@@ -42,13 +42,8 @@ var Container = []dingo.Def{
 			dispatcher *events.Dispatcher,
 			repository repositories.Repository,
 			adapter paginations.Adapter,
-		) (*handlers.Handler, error) {
-			return &handlers.Handler{
-				Debug:      env.Debug,
-				Dispatcher: dispatcher,
-				Repository: repository,
-				Adapter:    adapter,
-			}, nil
+		) (handlers.Handler, error) {
+			return handlers.New(env.Debug, dispatcher, repository, adapter), nil
 		},
 		Params: dingo.Params{
 			"0": dingo.Service("bima:config"),
