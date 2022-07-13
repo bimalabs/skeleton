@@ -106,7 +106,7 @@ func (_ Application) Run(config string) {
 		handlers = append(handlers, container.Get(cName.String()).(routes.Route))
 	}
 
-	ext = parsers.ParseRoute(workDir)
+	ext = parsers.ParseDriver(workDir)
 	storages := make([]drivers.Driver, 0, len(ext))
 	for _, c := range ext {
 		cName.Reset()
