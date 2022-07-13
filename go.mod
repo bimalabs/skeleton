@@ -5,9 +5,7 @@ go 1.16
 require (
 	github.com/bimalabs/framework/v4 v4.1.3
 	github.com/fatih/color v1.13.0
-	github.com/gertd/go-pluralize v0.1.7 // indirect
 	github.com/goccy/go-json v0.9.8
-	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
 	github.com/joho/godotenv v1.4.0
 	github.com/mattn/go-colorable v0.1.12 // indirect
