@@ -13,6 +13,7 @@ FROM alpine:latest
 
 COPY --from=builder /go/src/app/bima /usr/local/bin/bima
 COPY --from=builder /go/src/app/configs /usr/configs
+COPY --from=builder /go/src/app/swaggers /usr/swaggers
 RUN chmod a+x /usr/local/bin/bima
 WORKDIR /usr
 
