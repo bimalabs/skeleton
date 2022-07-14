@@ -3,7 +3,7 @@ module app
 go 1.16
 
 require (
-	github.com/bimalabs/framework/v4 v4.1.3
+	github.com/bimalabs/framework/v4 v4.1.5
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.8
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
@@ -13,9 +13,8 @@ require (
 	github.com/sarulabs/di/v2 v2.4.2
 	github.com/sarulabs/dingo/v4 v4.2.0
 	github.com/sirupsen/logrus v1.8.1
-	golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e // indirect
 	golang.org/x/tools v0.1.11 // indirect
-	google.golang.org/genproto v0.0.0-20220712132514-bdd2acd4974d // indirect
+	google.golang.org/genproto v0.0.0-20220713161829-9c7dac0a6568 // indirect
 	google.golang.org/grpc v1.48.0
 	google.golang.org/protobuf v1.28.0
 	gopkg.in/yaml.v2 v2.4.0
