@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"app/generated/engine"
@@ -53,68 +54,106 @@ func (_ Application) Run(config string) {
 
 	workDir, _ := os.Getwd()
 
-	var ext []string
+	var wg sync.WaitGroup = sync.WaitGroup{}
 	var cName bytes.Buffer
+	var servers []configs.Server
+	var listeners []events.Listener
+	var hooks []middlewares.Middleware
+	var extensions []logrus.Hook
+	var handlers []routes.Route
+	var storages []drivers.Driver
 
-	ext = parsers.ParseModule(workDir)
-	servers := make([]configs.Server, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString(c)
-		cName.WriteString(":server")
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseModule(workDir)
+		servers = make([]configs.Server, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString(c)
+			cName.WriteString(":server")
 
-		servers = append(servers, container.Get(cName.String()).(configs.Server))
-	}
+			servers = append(servers, container.Get(cName.String()).(configs.Server))
+		}
 
-	ext = parsers.ParseListener(workDir)
-	listeners := make([]events.Listener, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString("bima:listener:")
-		cName.WriteString(c)
+		wg.Done()
+	}()
 
-		listeners = append(listeners, container.Get(cName.String()).(events.Listener))
-	}
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseListener(workDir)
+		listeners = make([]events.Listener, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString("bima:listener:")
+			cName.WriteString(c)
 
-	ext = parsers.ParseMiddleware(workDir)
-	hooks := make([]middlewares.Middleware, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString("bima:middleware:")
-		cName.WriteString(c)
+			listeners = append(listeners, container.Get(cName.String()).(events.Listener))
+		}
 
-		hooks = append(hooks, container.Get(cName.String()).(middlewares.Middleware))
-	}
+		wg.Done()
+	}()
 
-	ext = parsers.ParseLogger(workDir)
-	extensions := make([]logrus.Hook, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString("bima:logger:extension:")
-		cName.WriteString(c)
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseMiddleware(workDir)
+		hooks = make([]middlewares.Middleware, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString("bima:middleware:")
+			cName.WriteString(c)
 
-		extensions = append(extensions, container.Get(cName.String()).(logrus.Hook))
-	}
+			hooks = append(hooks, container.Get(cName.String()).(middlewares.Middleware))
+		}
 
-	ext = parsers.ParseRoute(workDir)
-	handlers := make([]routes.Route, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString("bima:route:")
-		cName.WriteString(c)
+		wg.Done()
+	}()
 
-		handlers = append(handlers, container.Get(cName.String()).(routes.Route))
-	}
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseLogger(workDir)
+		extensions = make([]logrus.Hook, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString("bima:logger:extension:")
+			cName.WriteString(c)
 
-	ext = parsers.ParseDriver(workDir)
-	storages := make([]drivers.Driver, 0, len(ext))
-	for _, c := range ext {
-		cName.Reset()
-		cName.WriteString("bima:driver:")
-		cName.WriteString(c)
+			extensions = append(extensions, container.Get(cName.String()).(logrus.Hook))
+		}
 
-		storages = append(storages, container.Get(cName.String()).(drivers.Driver))
-	}
+		wg.Done()
+	}()
+
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseRoute(workDir)
+		handlers = make([]routes.Route, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString("bima:route:")
+			cName.WriteString(c)
+
+			handlers = append(handlers, container.Get(cName.String()).(routes.Route))
+		}
+
+		wg.Done()
+	}()
+
+	wg.Add(1)
+	go func() {
+		ext := parsers.ParseDriver(workDir)
+		storages = make([]drivers.Driver, 0, len(ext))
+		for _, c := range ext {
+			cName.Reset()
+			cName.WriteString("bima:driver:")
+			cName.WriteString(c)
+
+			storages = append(storages, container.Get(cName.String()).(drivers.Driver))
+		}
+
+		wg.Done()
+	}()
+
+	wg.Wait()
 
 	container.GetBimaRouterMux().Register(handlers)
 	container.GetBimaLoggerExtension().Register(extensions)
