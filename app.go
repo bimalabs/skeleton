@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"app/generated/engine"
+	"app/parsers"
 
 	bima "github.com/bimalabs/framework/v4"
 	"github.com/bimalabs/framework/v4/configs"
@@ -21,7 +22,6 @@ import (
 	"github.com/bimalabs/framework/v4/events"
 	"github.com/bimalabs/framework/v4/interfaces"
 	"github.com/bimalabs/framework/v4/middlewares"
-	"github.com/bimalabs/framework/v4/parsers"
 	"github.com/bimalabs/framework/v4/routes"
 	"github.com/fatih/color"
 	"github.com/goccy/go-json"
