@@ -55,7 +55,6 @@ func (_ Application) Run(config string) {
 	workDir, _ := os.Getwd()
 
 	var wg sync.WaitGroup = sync.WaitGroup{}
-	var cName bytes.Buffer
 	var servers []configs.Server
 	var listeners []events.Listener
 	var hooks []middlewares.Middleware
@@ -65,6 +64,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseModule(workDir)
 		servers = make([]configs.Server, 0, len(ext))
 		for _, c := range ext {
@@ -80,6 +80,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseListener(workDir)
 		listeners = make([]events.Listener, 0, len(ext))
 		for _, c := range ext {
@@ -95,6 +96,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseMiddleware(workDir)
 		hooks = make([]middlewares.Middleware, 0, len(ext))
 		for _, c := range ext {
@@ -110,6 +112,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseLogger(workDir)
 		extensions = make([]logrus.Hook, 0, len(ext))
 		for _, c := range ext {
@@ -125,6 +128,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseRoute(workDir)
 		handlers = make([]routes.Route, 0, len(ext))
 		for _, c := range ext {
@@ -140,6 +144,7 @@ func (_ Application) Run(config string) {
 
 	wg.Add(1)
 	go func() {
+		var cName bytes.Buffer
 		ext := parsers.ParseDriver(workDir)
 		storages = make([]drivers.Driver, 0, len(ext))
 		for _, c := range ext {
