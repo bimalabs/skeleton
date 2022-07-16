@@ -1,5 +1,9 @@
 version: '3'
 tasks:
+    build:
+        cmds:
+            - docker compose build --no-cache
+            - docker compose up -d --force-recreate
     commit:
         cmds:
             - git commit -am "{{.CLI_ARGS}}"
