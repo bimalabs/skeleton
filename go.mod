@@ -3,7 +3,7 @@ module app
 go 1.16
 
 require (
-	github.com/bimalabs/framework/v4 v4.1.6
+	github.com/bimalabs/framework/v4 v4.1.8
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.10
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.10.3
