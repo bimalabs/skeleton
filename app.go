@@ -39,7 +39,7 @@ type (
 	Application string
 )
 
-func (_ Application) Run(config string, debug bool) {
+func (_ Application) Run(config string) {
 	if config == "" {
 		config = ".env"
 	}
@@ -185,14 +185,6 @@ func (_ Application) Run(config string, debug bool) {
 
 	application := container.GetBimaApplication()
 	loadInterface(container, application, *env)
-	if debug {
-		util := color.New(color.FgRed)
-		util.Print("Run ")
-		color.New(color.FgRed, color.Bold).Print("bima debug")
-		util.Println(" from another terminal to activate remote debug")
-
-	}
-
 	application.Run(servers)
 }
 
