@@ -7,3 +7,5 @@ config.json
 generated/*
 swaggers/apidocs-swagger.json
 */**/.DS_Store
+.DS_Store
+/.DS_Store

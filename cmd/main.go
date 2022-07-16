@@ -18,5 +18,10 @@ func main() {
 		option = args[1]
 	}
 
-	skeleton.Application(command).Run(option)
+	debug := false
+	if len(args) > 2 {
+		debug = true
+	}
+
+	skeleton.Application(command).Run(option, debug)
 }
