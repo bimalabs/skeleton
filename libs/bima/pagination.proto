@@ -4,19 +4,12 @@ package grpcs;
 
 option go_package = ".;grpcs";
 
-import "google/protobuf/any.proto";
-
 message PaginationMetadata {
     int32 page = 1;
     int32 previous = 2;
     int32 next = 3;
     int32 limit = 4;
     int32 total = 5;
-}
-
-message PaginationResponse {
-    repeated google.protobuf.Any data = 1;
-    PaginationMetadata metadata = 2;
 }
 
 message PaginationRequest {
