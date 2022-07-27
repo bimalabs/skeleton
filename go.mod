@@ -6,9 +6,7 @@ require (
 	github.com/bimalabs/framework/v4 v4.1.9
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.10
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.11.0
 	github.com/joho/godotenv v1.4.0
-	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/sarulabs/di/v2 v2.4.2
