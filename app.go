@@ -5,6 +5,7 @@ import (
 	"context"
 	"crypto/sha256"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"log"
 	"os"
@@ -166,6 +167,11 @@ func (_ Application) Run(config string) {
 	container.GetBimaEventDispatcher().Register(listeners)
 	container.GetBimaDriverFactory().Register(storages)
 	container.GetBimaRouterGateway().Register(servers)
+
+	_, err = os.ReadFile(".pid")
+	if err == nil {
+		panic(errors.New("Application is already running in other session"))
+	}
 
 	pid := os.Getpid()
 	err = os.WriteFile(".pid", []byte(strconv.Itoa(pid)), 0755)
