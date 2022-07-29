@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/bimalabs/framework/v4 v4.1.9
+	github.com/briandowns/spinner v1.18.1
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.10
 	github.com/joho/godotenv v1.4.0
@@ -13,9 +14,11 @@ require (
 	github.com/sarulabs/dingo/v4 v4.2.0
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.0
-	golang.org/x/tools v0.1.11 // indirect
+	golang.org/x/net v0.0.0-20220728211354-c7608f3a8462 // indirect
+	golang.org/x/tools v0.1.12 // indirect
+	google.golang.org/genproto v0.0.0-20220728213248-dd149ef739b9 // indirect
 	google.golang.org/grpc v1.48.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.28.1
 	gopkg.in/yaml.v2 v2.4.0
 	gorm.io/driver/mysql v1.3.5 // indirect
 	gorm.io/driver/postgres v1.3.8 // indirect

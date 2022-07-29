@@ -24,6 +24,7 @@ import (
 	"github.com/bimalabs/framework/v4/interfaces"
 	"github.com/bimalabs/framework/v4/middlewares"
 	"github.com/bimalabs/framework/v4/routes"
+	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
 	"github.com/goccy/go-json"
 	"github.com/joho/godotenv"
@@ -33,6 +34,11 @@ import (
 	"google.golang.org/grpc/encoding/gzip"
 	"google.golang.org/grpc/grpclog"
 	"gopkg.in/yaml.v2"
+)
+
+var (
+	spinerIndex = 9
+	duration    = 77 * time.Millisecond
 )
 
 type (
@@ -49,8 +55,14 @@ func (_ Application) Run(config string) {
 		panic(err)
 	}
 
+	progress := spinner.New(spinner.CharSets[spinerIndex], duration)
+	progress.Suffix = " Loading environment... "
+	progress.Start()
+
 	env := container.GetBimaConfig()
 	loadEnv(env, config, filepath.Ext(config))
+
+	progress.Stop()
 
 	workDir, _ := os.Getwd()
 
@@ -61,6 +73,10 @@ func (_ Application) Run(config string) {
 	var extensions []logrus.Hook
 	var handlers []routes.Route
 	var storages []drivers.Driver
+
+	progress = spinner.New(spinner.CharSets[spinerIndex], duration)
+	progress.Suffix = " Loading module(s)... "
+	progress.Start()
 
 	wg.Add(1)
 	go func() {
@@ -159,6 +175,8 @@ func (_ Application) Run(config string) {
 	}()
 
 	wg.Wait()
+
+	progress.Stop()
 
 	container.GetBimaRouterMux().Register(handlers)
 	container.GetBimaLoggerExtension().Register(extensions)
