@@ -87,6 +87,8 @@ github.com/bimalabs/framework/v4 v4.2.1 h1:/gu5quWvrf0t5F3ivylxaetxTcEZ8GY5J1sVg
 github.com/bimalabs/framework/v4 v4.2.1/go.mod h1:JWRWIrnYOkJKYb0VT+0mj17+I8UluwY5FhEVeGCKiLA=
 github.com/bimalabs/framework/v4 v4.2.5 h1:ZF4hYqzIEhq7a1RO6VYxfGuI0yobT6Mr60jy8+fE+AA=
 github.com/bimalabs/framework/v4 v4.2.5/go.mod h1:JWRWIrnYOkJKYb0VT+0mj17+I8UluwY5FhEVeGCKiLA=
+github.com/bimalabs/framework/v4 v4.2.7 h1:z8ZHN8tPD2Rfmp8hrvmi5VCZTN/vb69uDvWgHVQU6SU=
+github.com/bimalabs/framework/v4 v4.2.7/go.mod h1:JWRWIrnYOkJKYb0VT+0mj17+I8UluwY5FhEVeGCKiLA=
 github.com/cenkalti/backoff/v3 v3.0.0/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
 github.com/cenkalti/backoff/v3 v3.2.2/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
