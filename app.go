@@ -186,7 +186,7 @@ func (_ Application) Run(config string) {
 	if env.Debug {
 		util.Print("✓ ")
 		fmt.Print("Api Doc ready on ")
-		util.Println("/api/docs")
+		util.Println(fmt.Sprintf("%s/docs", env.ApiPrefix))
 	}
 
 	application := container.GetBimaApplication()
