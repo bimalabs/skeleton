@@ -230,12 +230,13 @@ func loadEnv(config *configs.Env, filePath string, ext string) {
 }
 
 func processDotEnv(config *configs.Env) {
-	config.Secret = os.Getenv("APP_SECRET")
 	config.Debug, _ = strconv.ParseBool(os.Getenv("APP_DEBUG"))
 	config.HttpPort, _ = strconv.Atoi(os.Getenv("APP_PORT"))
 	config.RpcPort, _ = strconv.Atoi(os.Getenv("GRPC_PORT"))
 
 	config.Service = os.Getenv("APP_NAME")
+	config.Secret = os.Getenv("APP_SECRET")
+	config.ApiPrefix = os.Getenv("API_PREFIX")
 	dbPort, _ := strconv.Atoi(os.Getenv("DB_PORT"))
 	config.Db = configs.Db{
 		Host:     os.Getenv("DB_HOST"),
