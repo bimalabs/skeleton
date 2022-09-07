@@ -40,7 +40,7 @@ type (
 	Application string
 )
 
-func (_ Application) Run(config string) {
+func (Application) Run(config string) {
 	if config == "" {
 		config = ".env"
 	}
@@ -197,7 +197,7 @@ func (_ Application) Run(config string) {
 func loadEnv(config *configs.Env, filePath string, ext string) {
 	switch ext {
 	case ".env":
-		godotenv.Load()
+		_ = godotenv.Load()
 		processDotEnv(config)
 	case ".yaml":
 		content, err := os.ReadFile(filePath)
