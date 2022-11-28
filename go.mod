@@ -3,21 +3,17 @@ module app
 go 1.16
 
 require (
-	github.com/allegro/bigcache/v3 v3.1.0 // indirect
 	github.com/bimalabs/framework/v4 v4.2.17
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.9.11
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.14.0 // indirect
 	github.com/joho/godotenv v1.4.0
-	github.com/kamva/mgm/v3 v3.5.0 // indirect
-	github.com/klauspost/compress v1.15.12 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/sarulabs/di/v2 v2.4.2
 	github.com/sarulabs/dingo/v4 v4.2.0
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.1
-	go.mongodb.org/mongo-driver v1.11.0 // indirect
 	golang.org/x/crypto v0.3.0 // indirect
 	golang.org/x/tools v0.3.0 // indirect
 	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6 // indirect
