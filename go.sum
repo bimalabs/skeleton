@@ -406,10 +406,8 @@ github.com/aws/aws-sdk-go v1.43.21/go.mod h1:y4AeaBuwd2Lk+GepC1E9v0qOiTws0MIWAX4
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
-github.com/bimalabs/framework/v4 v4.3.0 h1:boAa2qV/E4ycsFIjLX6Csy9lqLuyW4OSujHDrojzbX8=
-github.com/bimalabs/framework/v4 v4.3.0/go.mod h1:qIHbdb/lTGU6BygE2XFgZWFc6CHjt3cxGN38q5mXWhA=
-github.com/bimalabs/framework/v4 v4.3.1 h1:4d5kSKnWCWYKClpdL3fsX704HyzPyjI0/EzsVf+njZE=
-github.com/bimalabs/framework/v4 v4.3.1/go.mod h1:qIHbdb/lTGU6BygE2XFgZWFc6CHjt3cxGN38q5mXWhA=
+github.com/bimalabs/framework/v4 v4.3.3 h1:Lsof7O3XUhI95lQNddZ9Nn8rDuSFrdP3RYHvVRhynDI=
+github.com/bimalabs/framework/v4 v4.3.3/go.mod h1:qIHbdb/lTGU6BygE2XFgZWFc6CHjt3cxGN38q5mXWhA=
 github.com/cenkalti/backoff/v3 v3.0.0/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
 github.com/cenkalti/backoff/v3 v3.2.2/go.mod h1:cIeZDE3IrqwwJl6VUwCN6trj1oXrTS4rc0ij+ULvLYs=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
