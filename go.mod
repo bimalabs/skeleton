@@ -3,7 +3,7 @@ module app
 go 1.16
 
 require (
-	github.com/bimalabs/framework/v4 v4.3.0
+	github.com/bimalabs/framework/v4 v4.3.1
 	github.com/fatih/color v1.13.0
 	github.com/goccy/go-json v0.10.0
 	github.com/joho/godotenv v1.4.0
